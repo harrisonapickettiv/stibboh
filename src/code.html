@@ -176,21 +176,68 @@
           <div class="col-lg-8">
             <pre class="line-numbers">
               <code class="language-javascript">
-                // This is a comment
-
-                const helloWorld = () => {
-                  console.log("Hello, World!");
+                // Get the string from the user
+                const getValues = () => {
+                  const str = document.querySelector("#userString").value;
+                  return str;
                 };
 
+                // Reverse the string
+                const reverseString = (str) => {
+                  let reversedString = "";
+                
+                  for (const char of str) {
+                    reversedString = char + reversedString;
+                  }
+                
+                  return reversedString;
+                };
+
+                // Display the reversed string to the user
+                const displayString = (str) => {
+                  const alert = document.querySelector("#alert");
+                  const msg = document.querySelector("#msg");
+                
+                  msg.innerHTML = `Your string reversed is: ${str}`;
+                  alert.classList.remove("invisible");
+                };
+
+                // put it all together in a single controller
+                const stibboh = () => {
+                  const userString = getValues();
+                  const reversedString = reverseString(userString);
+                
+                  displayString(reversedString);
+                };
               </code>
             </pre>
           </div>
           <div class="col-lg-4">
-            <p>The code is structured in one function.</p>
-            <h5>Hello World</h5>
             <p>
-              Hello World is a function that logs 'Hello, World!' to the
-              console.
+              The code is structured as several functions with a primary
+              controller exported to the application.
+            </p>
+            <h5>Get Values</h5>
+            <p>
+              A function that gets userString from the user interface. Returns
+              the value of userString.
+            </p>
+            <h5>Reverse String</h5>
+            <p>
+              A function that takes a string and returns the reverse of that
+              string.
+            </p>
+            <h5>Display String</h5>
+            <p>
+              A function that takes a string and inserts it into the element
+              with id "msg". Then removes the invisible class from the element
+              with id "alert" ( the parent of "msg" ).
+            </p>
+            <h5>Stibboh</h5>
+            <p>
+              The main application function. Calls getValues to get user input.
+              Then calls reverseString followed by displayString to display the
+              reversed string to the user.
             </p>
           </div>
         </div>
