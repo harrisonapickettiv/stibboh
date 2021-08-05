@@ -1,5 +1,6 @@
-// This is a comment
+import { stibboh } from "./stibboh";
 
-const helloWorld = () => {
-  console.log("Hello, World!");
+document.querySelector("#btnSubmit").onclick = (event) => {
+  event.preventDefault();
+  stibboh();
 };
